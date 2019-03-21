@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- 
-    Author(s): 
-    Class: CS330
-    Instructor: Dr. Roman Yasinovskyy
-    Date: 19/03/2019
- -->
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
-    <link rel="shortcut icon" type="image/png" href="https://swopnilnep.github.io/images/favicon.png" />
-    <title>Prospectus | Diverse News Aggregator</title>
+    <link rel="shortcut icon" type="image/png" href="https://static.planetminecraft.com/files/avatar/558440.png" />
+    <title>A diversified news aggregator</title>
 </head>
 
 <body>
+    <!-- Load JavaScript implemented functions -->
+    <script src="../js/model.js" type=text/javascript></script>
+    <script src="../js/view.js" type=text/javascript></script>
+    <script src="../js/controller.js" type=text/javascript></script>
 
-        <div class="container">
-            <br/>
-            <div class="row">
-                <div class="col-3 black-borders text-left">
-                    <lead>Left Leaning</lead>
-                </div>
-                
-                <div class="col-6  justify-content-center">
-                    <form class="card card-sm">
-                        <div class="card-body row no-gutters align-items-center">
-                            <div class="col">
-                                <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
-                            </div>
-                            <!--end of col-->
-                            <div class="col-auto">
-                                <button class="btn btn-lg btn-primary" type="submit">Search</button>
-                            </div>
-                            <!--end of col-->
-                        </div>
-                    </form>
-                </div>
+    <!-- Heading information and title container -->
+    <div class="container" id="title-container">
+        <h1 class="display-4" id="title-container">Prospectus</h1>
+        <lead></lead>
+    </div>
 
-                <div class="col-3 black-borders text-right">
-                    <lead>Right Leaning</lead>
-                </div>
-    
+    <!-- Form Container -->
+    <div class="jumbotron" id="form-container">
 
+        <div class="row">
+
+            <div class=" col-3 text-left black-borders ">
+                <h1 class="display-4">
+                    Left Leaning
+                </h1>
             </div>
-        </div>
 
-        <!-- Load JavaScript implemented functions -->
-        <script src="../js/model.js" type=text/javascript></script>
-        <script src="../js/view.js" type=text/javascript></script>
-        <script src="../js/controller.js" type=text/javascript></script>
-        <script src="../js/jquery-3.3.1.slim.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-    </body>
+            <div class="col-6 justify-content-center ">
+                <form class="card card-sm ">
+                    <div class="card-body row no-gutters align-items-center ">
+                        <div class="col ">
+                            <input class="form-control form-control-lg form-control-borderless " type="search " placeholder="Search topics or keywords ">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto ">
+                            <button class="btn btn-lg btn-primary " type="submit ">Search</button>
+                        </div>
+                        <!--end of col-->
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-3 text-right black-borders ">
+                <h1 class="display-4">
+                    Right Leaning
+                </h1>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Numbers Container-->
+    <div class="container " id="number-container ">Numbers Here</div>
+    <!-- Add bootstrap javascript elements -->
+    <script src="../js/jquery-3.3.1.slim.min.js "></script>
+    <script src="../js/bootstrap.min.js "></script>
+    <script src="../js/popper.min.js "></script>
+</body>
+
 </html>
