@@ -39,7 +39,7 @@
                         </div>
                         <!--end of col-->
                         <div class="col-auto ">
-                            <button class="btn btn-lg btn-primary " type="submit ">Search</button>
+                            <button class="btn btn-lg btn-primary " onclick="clickSearchButton();">Search</button>
                         </div>
                         <!--end of col-->
                     </div>
@@ -56,7 +56,17 @@
     </div>
 
     <!-- Numbers Container-->
-    <div class="container " id="number-container ">Numbers Here</div>
+    <div class="container " id="number-container ">
+    <!-- This is a div of 3 or 4 columns based on the screen size that
+        populates itslef with a series of "news cards". Each news card
+        contains data from the APIs which are:
+            1. News Title (News API)
+            2. News Source  (News API)
+            3. Summary  (Summary API)
+            4. Sentiment (Sentiment API)
+    -->
+    Numbers Here
+    </div>
     <!-- Add bootstrap javascript elements -->
     <script src="../js/jquery-3.3.1.slim.min.js "></script>
     <script src="../js/bootstrap.min.js "></script>
