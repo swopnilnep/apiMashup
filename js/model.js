@@ -12,12 +12,20 @@ class NewsCard{
 }
 
 class NewsCardList{
-    constructor(newList){
-        this.list = newList;
+    constructor(){
+        this.list = [newList];
     }
     
     push(card){
         this.list.push(card);
+    }
+
+    get list(){
+        return this.list;
+    }
+
+    assign(newList){
+        this.list = newList.list();
     }
 
 }

@@ -1,8 +1,8 @@
 "use strict;"
 
 const newsSourceMap = {};
-var myNewsCards = new NewsCardList([]);
-var myNewsView = new NewsView;
+var myNewsCards = new NewsCardList();
+var myNewsView = new NewsView();
 
 //
 //  Task Flow Functions
@@ -19,6 +19,7 @@ function populateCardList(numberOfSources, sourceLeftLeaning, sourceRightLeaning
     }
 
     // call the news API for 'numberOfSources' news articles and populate into NewsCardList
+    
 
 }
 
