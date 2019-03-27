@@ -1,4 +1,7 @@
-"use strict;"
+"use strict";
+/* jshint esversion: 8 */
+/* jshint browser:true */
+/* jshint node:true */
 
 const newsSourceMap = {};
 var myNewsCards = new NewsCardList();
@@ -8,16 +11,24 @@ var myNewsView = new NewsView();
 //  Task Flow Functions
 //
 
-function clickSearchButton(){
-    // Validator
+async function clickSearchButton(){
+    let searchField = document.getElementById("searchField")
+    
+    // Validator Not Passed
+    if (searchField == ""){
+        console.log("ERROR: Invalid Input");
+        return;
+    }
 
     // Validator Passed
-
+    else {
+        populateCardList(searchField);
+    }
 }
 
-function populateCardList(){
+async function populateCardList(){
 
-    // call the news API for 'numberOfSources' news articles and populate into NewsCardList
+    // call the news API for news articles and populate into NewsCardList
     
         // push three left sources into the myNewsCards
 
@@ -33,12 +44,11 @@ function populateCardList(){
 
 }
 
-
 //
 // API Getter Functions
 //
 
-function getNews(numberOfSources, sourceLeftLeaning, sourceRightLeaning){
+async function getNews(query, numberOfSources, leftLimit, rightLimit){
     //    
     // The getNews function calls the News API and gets a list of
     // news titles and content from the news sources in newsSourceMap.
@@ -53,7 +63,7 @@ function getNews(numberOfSources, sourceLeftLeaning, sourceRightLeaning){
 
 }
 
-function getTone(){
+async function getTone(){
     //
     // The getTone function calls the IBM sentiment analysis API
     // for the title of each news article on the list of the NewsCardList.
@@ -62,7 +72,7 @@ function getTone(){
 
 }
 
-function getSummary(){
+async function getSummary(){
 
     // Uses the summary API to get a short summary of the news article
     // If the news article summary is not available, then it gives a short

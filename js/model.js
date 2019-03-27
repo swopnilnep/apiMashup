@@ -1,4 +1,7 @@
-"use strict;"
+"use strict";
+/* jshint esversion: 8 */
+/* jshint browser:true */
+/* jshint node:true */
 
 class NewsCard{
     constructor(source, title, text, tone, lean){
