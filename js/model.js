@@ -28,4 +28,8 @@ class NewsCardList{
         this.list = newList.list();
     }
 
+    clear(){
+        this.list = [];
+    }
+
 }

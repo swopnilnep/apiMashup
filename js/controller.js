@@ -9,17 +9,27 @@ var myNewsView = new NewsView();
 //
 
 function clickSearchButton(){
+    // Validator
+
+    // Validator Passed
 
 }
 
-function populateCardList(numberOfSources, sourceLeftLeaning, sourceRightLeaning){
-    if (sourceLeftLeaning > sourceRightLeaning){
-        console.log("ERROR: Left Learning source rating must be lower than right leaning source rating");
-        return;
-    }
+function populateCardList(){
 
     // call the news API for 'numberOfSources' news articles and populate into NewsCardList
     
+        // push three left sources into the myNewsCards
+
+        // push threee center sources into myNewsCards
+
+        // push three right sources into myNewsCards
+
+    // Call getTone to add tone information to all the cards in myNewsCards
+
+    // Call getSummary to add summary information to  all the cards in myNewsCards
+
+    // Update the NewsView to display the changes
 
 }
 
@@ -28,11 +38,18 @@ function populateCardList(numberOfSources, sourceLeftLeaning, sourceRightLeaning
 // API Getter Functions
 //
 
-function getNews(){
+function getNews(numberOfSources, sourceLeftLeaning, sourceRightLeaning){
     //    
     // The getNews function calls the News API and gets a list of
     // news titles and content from the news sources in newsSourceMap.
     //
+
+        
+    // Input Validator
+    if (sourceLeftLeaning > sourceRightLeaning){
+        console.log("ERROR: Left Learning source rating must be lower than right leaning source rating");
+        return;
+    }
 
 }
 
