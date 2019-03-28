@@ -16,7 +16,7 @@ class NewsCard{
 
 class NewsCardList{
     constructor(){
-        this.list = [newList];
+        this.list = [];
     }
     
     push(card){
