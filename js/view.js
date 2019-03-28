@@ -1,6 +1,6 @@
 "use strict;"
 
-class newsView{
+class NewsView{
     constructor(model){
         model.subscribe(this.populatePage.bind(this));
     }

@@ -1,6 +1,6 @@
 "use strict;"
 
-class newsCard{
+class NewsCard{
     constructor(source, title, text, tone, lean){
         this.source = source;
         this.title = title;
@@ -11,7 +11,7 @@ class newsCard{
     }
 }
 
-class newsCardList{
+class NewsCardList{
     constructor(){
         this.list = [];
     }

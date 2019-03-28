@@ -22,3 +22,19 @@
 #number-container {
   text-align: center;
 }
+
+.textContainer h3 {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.center-span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+.text-center {
+    display: inline-block;
+    border: 1px solid red;
+    position: relative;
+  }
