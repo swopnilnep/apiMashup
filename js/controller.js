@@ -56,14 +56,14 @@ async function getNews(query, numberOfSources, leftLimit, rightLimit){
 
         
     // Input Validator
-    if (sourceLeftLeaning > sourceRightLeaning){
+    if (leftLimit > rightLimit){
         console.log("ERROR: Left Learning source rating must be lower than right leaning source rating");
         return;
     }
 
 }
 
-async function getTone(){
+async function getTone(headline){
     //
     // The getTone function calls the IBM sentiment analysis API
     // for the title of each news article on the list of the NewsCardList.
@@ -72,7 +72,7 @@ async function getTone(){
 
 }
 
-async function getSummary(){
+async function getSummary(headline){
 
     // Uses the summary API to get a short summary of the news article
     // If the news article summary is not available, then it gives a short
