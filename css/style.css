@@ -7,3 +7,34 @@
     outline: none;
     box-shadow: none;
 }
+
+.black-borders {
+    border-style: dashed;
+    border-color: red;
+}
+
+#title-container {
+    /* background-color: #b4eddb; */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#number-container {
+  text-align: center;
+}
+
+.textContainer h3 {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.center-span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+.text-center {
+    display: inline-block;
+    border: 1px solid red;
+    position: relative;
+  }

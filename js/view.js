@@ -1,6 +1,9 @@
-"use strict;"
+"use strict";
+/* jshint esversion: 8 */
+/* jshint browser:true */
+/* jshint node:true */
 
-class newsView{
+class NewsView{
     constructor(model){
         model.subscribe(this.populatePage.bind(this));
     }

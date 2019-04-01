@@ -1,6 +1,9 @@
-"use strict;"
+"use strict";
+/* jshint esversion: 8 */
+/* jshint browser:true */
+/* jshint node:true */
 
-class newsCard{
+class NewsCard{
     constructor(source, title, text, tone, lean){
         this.source = source;
         this.title = title;
@@ -11,13 +14,25 @@ class newsCard{
     }
 }
 
-class newsCardList{
+class NewsCardList{
     constructor(){
         this.list = [];
     }
     
     push(card){
         this.list.push(card);
+    }
+
+    get list(){
+        return this.list;
+    }
+
+    assign(newList){
+        this.list = newList.list();
+    }
+
+    clear(){
+        this.list = [];
     }
 
 }

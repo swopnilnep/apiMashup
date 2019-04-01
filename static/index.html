@@ -1,80 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- 
-    Author(s): 
-    Class: CS330
-    Instructor: Dr. Roman Yasinovskyy
-    Date: 19/03/2019
- -->
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
-    <link rel="shortcut icon" type="image/png" href="https://swopnilnep.github.io/images/favicon.png" />
-    <title>Prospectus | Diverse News Aggregator</title>
+    <title>A diversified news aggregator</title>
 </head>
 
 <body>
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <!-- 
-    Author(s): 
-    Class: CS330
-    Instructor: Dr. Roman Yasinovskyy
-    Date: 19/03/2019
- -->
-
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/style.css" type="text/css">
-        <link rel="shortcut icon" type="image/png" href="https://swopnilnep.github.io/images/favicon.png" />
-        <title>Prospectus | Diverse News Aggregator</title>
-    </head>
-
-    <body>
-
-        <div class="container">
-            <br/>
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-lg-8">
-                    <form class="card card-sm">
-                        <div class="card-body row no-gutters align-items-center">
-                            <div class="col">
-                                <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
-                            </div>
-                            <!--end of col-->
-                            <div class="col-auto">
-                                <button class="btn btn-lg btn-primary" type="submit">Search</button>
-                            </div>
-                            <!--end of col-->
-                        </div>
-                    </form>
-                </div>
-                <!--end of col-->
-            </div>
-        </div>
-
-        <!-- Load JavaScript implemented functions -->
-        <script src="../js/model.js" type=text/javascript></script>
-        <script src="../js/view.js" type=text/javascript></script>
-        <script src="../js/controller.js" type=text/javascript></script>
-        <script src="../js/jquery-3.3.1.slim.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-    </body>
-
-    </html>
-
     <!-- Load JavaScript implemented functions -->
     <script src="../js/model.js" type=text/javascript></script>
     <script src="../js/view.js" type=text/javascript></script>
     <script src="../js/controller.js" type=text/javascript></script>
-    <script src="../js/jquery-3.3.1.slim.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/popper.min.js"></script>
+
+    <!-- Heading information and title container -->
+    <div class="container" id="title-container">
+        <h1 class="display-4" id="title-container">Prospectus</h1>
+        <lead>All news sources have some bias. We provide diversified news with all sides of the argument</lead>
+    </div>
+
+    <!-- Form Container -->
+    <div class="container" id="form-container">
+
+        <div class="row">
+
+            <div class="col-3 text-center">
+                <div class="center-span">
+                        Left Leaning
+                </div>
+            </div>
+
+            <div class="col-6 justify-content-center">
+                <form class="card card-sm ">
+                    <div class="card-body row no-gutters align-items-center ">
+                        <div class="col ">
+                            <input class="form-control form-control-lg form-control-borderless" id="searchField" type="search " placeholder="Search topics or keywords ">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto ">
+                            <button class="btn btn-lg btn-primary" onclick="clickSearchButton();">Search</button>
+                        </div>
+                        <!--end of col-->
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-3 text-center">
+                    <div class="center-span">
+                            Right Leaning
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+    <!-- Numbers Container-->
+    <div class="container " id="number-container ">
+    <!-- This is a div of 3 or 4 columns based on the screen size that
+        populates itslef with a series of "news cards". Each news card
+        contains data from the APIs which are:
+            1. News Title (News API)
+            2. News Source  (News API)
+            3. Summary  (Summary API)
+            4. Sentiment (Sentiment API)
+    -->
+    Numbers Here
+    </div>
+    <!-- Add bootstrap javascript elements -->
+    <script src="../js/jquery-3.3.1.slim.min.js "></script>
+    <script src="../js/bootstrap.min.js "></script>
+    <script src="../js/popper.min.js "></script>
 </body>
 
 </html>
