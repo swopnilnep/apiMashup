@@ -12,7 +12,7 @@ var myNewsView = new NewsView();
 //
 
 async function clickSearchButton(){
-    let searchField = document.getElementById("searchField")
+    let searchField = document.getElementById("searchField").value;
     
     // Validator Not Passed
     if (searchField == ""){
@@ -26,7 +26,7 @@ async function clickSearchButton(){
     }
 }
 
-async function populateCardList(){
+async function populateCardList(searchField){
 
     // call the news API for news articles and populate into NewsCardList
     
@@ -72,7 +72,7 @@ async function getTone(headline){
 
 }
 
-async function getSummary(headline){
+async function getSummary(articleContent){
 
     // Uses the summary API to get a short summary of the news article
     // If the news article summary is not available, then it gives a short

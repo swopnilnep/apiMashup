@@ -1,40 +1,4 @@
-.form-control-borderless {
-    border: none;
+.inner-card{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
-
-.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
-}
-
-.black-borders {
-    border-style: dashed;
-    border-color: red;
-}
-
-#title-container {
-    /* background-color: #b4eddb; */
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-#number-container {
-  text-align: center;
-}
-
-.textContainer h3 {
-    vertical-align: middle;
-    display: inline-block;
-}
-
-.center-span {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-.text-center {
-    display: inline-block;
-    border: 1px solid red;
-    position: relative;
-  }
