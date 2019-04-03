@@ -5,10 +5,16 @@
 
 class NewsView{
     constructor(model){
-        model.subscribe(this.populatePage.bind(this));
+        this.model = model;
     }
 
-    populatePage(cards, int){
+    // builds a card based on the information
+    buildCard(){
+
+    }
+
+    // Adds cards element by element into the main view
+    populatePage(){
 
     }
 }
