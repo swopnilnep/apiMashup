@@ -4,11 +4,12 @@
 /* jshint node:true */
 
 class NewsCard{
-    constructor(source, title, text, tone, lean){
+    constructor(source, title, text, tone, link, lean){
         this.source = source;
         this.title = title;
         this.text = text;
         this.tone = tone;
+        this.link = link;
         this.lean = lean;
 
     }
