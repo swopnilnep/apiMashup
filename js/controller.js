@@ -79,17 +79,26 @@ async function populateCardList(searchField) {
             let source = currentArticle.source.name;
             let title = currentArticle.title;
             let link = currentArticle.url;
-            //let text = getSummary(currentArticle.content);
-            //let tone = getTone(title);
+            
             let text = await Promise.all([getSummary(currentArticle.content)]);
-            console.log(text[0]);
+            //console.log(su[0]);
+
+            if(text[0].status.msg == "OK"){
+                text = text[0].summary;
+            }
+            else{
+                text = currentArticle.description;
+            }
 
             let tone = await Promise.all([getTone(currentArticle.content)]);
-            console.log(tone[0]);
+            //console.log(score_tag[0]);
+            tone = tone[0].score_tag;
+            console.log(tone);
 
-            let aNewsCard = new NewsCard(source, title, "", "", link, currentLeaning);
+            let aNewsCard = new NewsCard(source, title, text, tone, link, currentLeaning);
 
             myNewsCards.push(aNewsCard);
+            myNewsView.createCard(title, source, text, link, tone, currentLeaning)
         }
     }
 
@@ -120,7 +129,7 @@ async function getNews(query, source) {
         'q=' + query + '&' +
         'sources=' + (source) + '&' +
         'pageSize=1' + '&' +
-        'apiKey=bbd60ca606f641e094d9440de45c1940';
+        'apiKey=1f876c5c1a9d418bb80b56c741b2e22c';
 
     return getDataFromUrl(url);
 
@@ -140,7 +149,7 @@ async function getTone(headline) {
     //
     
    let url = "https://api.meaningcloud.com/sentiment-2.1?" +
-          "key=" + "77873dc3cbca39af92159ed769e6b9d2" +
+          "key=" + "99b3c4cb8a7a89adb838574373880ab7" +
           "&lang=" + "en" +
           "&txt=" + headline +
           "&txtf=" + "plain";
@@ -156,7 +165,7 @@ function getSummary(content) {
 
  
     let url =  "https://api.meaningcloud.com/summarization-1.0?" +
-        "key=" + "77873dc3cbca39af92159ed769e6b9d2" +
+        "key=" + "99b3c4cb8a7a89adb838574373880ab7" +
         "&txt=" + content +
         "&sentences=" + "10";
 
