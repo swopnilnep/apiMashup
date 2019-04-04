@@ -61,8 +61,6 @@ class NewsView{
     update(){
         // Reads every element in this.cards
 
-        // 
-
         for(var i=0; i<9; i++){
             this.createCard(this.cards[i].title, this.cards[i].source, this.cards[i].text, this.cards[i].link);
             if(this.cards[i].lean = 0){
@@ -78,8 +76,6 @@ class NewsView{
                 location.appendChild(this.cards[i]);
             }
         }
-
-        //reads every element in this.cards 
 
         //looks where cards lean and builds a card for each element and then looks at leaning and places it based on the id of leaning
 
