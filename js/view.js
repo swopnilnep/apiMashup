@@ -4,8 +4,8 @@
 /* jshint node:true */
 
 class NewsView{
-    constructor(model){
-        this.model = model;
+    constructor(cards){
+        this.cards = cards;
     }
 
     // builds a card based on the information
@@ -14,7 +14,7 @@ class NewsView{
     }
 
     // Adds cards element by element into the main view
-    populatePage(){
+    update(){
 
     }
 }
