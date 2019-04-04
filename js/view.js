@@ -15,6 +15,9 @@ class NewsView{
 
     // Adds cards element by element into the main view
     update(){
+        // Reads every element in this.cards
+
+        // 
 
     }
 }
