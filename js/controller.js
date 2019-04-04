@@ -4,15 +4,41 @@
 /* jshint node:true */
 
 const newsSourceMap = {};
-var myNewsCards = new NewsCardList();
-var myNewsView = new NewsView();
+//var myNewsCards = new NewsCardList();
+//var myNewsView = new NewsView();
+
+var biasDict = {
+                "al-jazeera-english": -.9,
+                "msnbc": -.8,
+                "daily-mail": -.8,
+                "newsweek": -.7,
+                "the-new-york-times": -.6,
+                "bbc-news": -.5,
+                "the-washington-post": -.5,
+
+                "abc-news":-.4,  
+                "cnn": -.3,
+                "cbs-news": -.2,
+                "associated-press": -.1,
+                "reuters": 0.0,
+                "independent": .2,
+                "the-wall-street-journal": .3,
+
+                "the-american-conservative": .5,
+                "fox-news": .6,
+                "national-review": .7,
+                "breitbart-news": .8,
+            
+                
+                }
+
 
 //
 //  Task Flow Functions
 //
 
 async function clickSearchButton(){
-    let searchField = document.getElementById("searchField").value;
+    let searchField = document.getElementById("searchField").value
     
     // Validator Not Passed
     if (searchField == ""){
@@ -28,9 +54,48 @@ async function clickSearchButton(){
 
 async function populateCardList(searchField){
 
+    var leftArray= ["al-jazeera-english", "msnbc", "daily-mail",
+    "newsweek", "the-new-york-times", "bbc-news",
+    "the-washington-post"];
+
+    var centerArray = ["abc-news", "cnn", "cbs-news", "associated-press",
+    "reuters", "indepedent", "the-wall-street-journal"];
+
+    var rightArray = ["the-american-conservative", "fox-news", 
+    "national-review", "breitbart-news"];
+
+    let[leftNews, centerNews, rightNews] = await Promise.all([
+        getNews(searchField, chooseSource(leftArray)),
+        getNews(searchField,chooseSource(centerArray)),
+        getNews(searchField,chooseSource(rightArray)),
+    ]);
+    console.log(leftNews['title']);
+    console.log(centerNews['title']);
+    console.log(rightNews['title']);
+   
+
+    leftArray= ["al-jazeera-english", "msnbc", "daily-mail",
+    "newsweek", "the-new-york-times", "bbc-news",
+    "the-washington-post"];
+
+    centerArray = ["abc-news", "cnn", "cbs-news", "associated-press",
+    "reuters", "indepedent", "the-wall-street-journal"];
+
+    rightArray = ["the-american-conservative", "fox-news", 
+    "national-review", "breitbart-news"];
+
+
+function chooseSource(arrayOfSources){
+    let sourceIndex = Math.floor(Math.random() * arrayOfSources.length);
+    let pickedSource = arrayOfSources[sourceIndex];
+    arrayOfSources.splice(sourceIndex,1);
+    return pickedSource;
+}
+
+
     // call the news API for news articles and populate into NewsCardList
     
-        // push three left sources into the myNewsCards
+        // push three left sources into myNewsCards
 
         // push threee center sources into myNewsCards
 
@@ -48,20 +113,29 @@ async function populateCardList(searchField){
 // API Getter Functions
 //
 
-async function getNews(query, numberOfSources, leftLimit, rightLimit){
+async function getNews(query, source){
     //    
     // The getNews function calls the News API and gets a list of
     // news titles and content from the news sources in newsSourceMap.
     //
 
-        
-    // Input Validator
-    if (leftLimit > rightLimit){
-        console.log("ERROR: Left Learning source rating must be lower than right leaning source rating");
-        return;
+    var url = 'https://newsapi.org/v2/everything?' +
+          'q='+query+'&'+
+          'sources='+source+'&'+
+          'apiKey=bbd60ca606f641e094d9440de45c1940'; 
+
+    var req = new Request(url);
+
+    return fetch(req)
+        .then(
+            response => response.json()
+        )
+        .catch(
+            error => console.log(error)
+        )
+
     }
 
-}
 
 async function getTone(headline){
     //
@@ -72,7 +146,7 @@ async function getTone(headline){
 
 }
 
-async function getSummary(articleContent){
+async function getSummary(headline){
 
     // Uses the summary API to get a short summary of the news article
     // If the news article summary is not available, then it gives a short
