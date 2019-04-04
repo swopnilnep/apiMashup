@@ -59,6 +59,9 @@ class NewsView{
 
     // Adds cards element by element into the main view
     update(){
+        // Reads every element in this.cards
+
+        // 
 
         for(var i=0; i<9; i++){
             this.createCard(this.cards[i].title, this.cards[i].source, this.cards[i].text, this.cards[i].link);

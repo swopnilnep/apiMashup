@@ -1,4 +1,5 @@
 "use strict";
+
 /* jshint esversion: 8 */
 /* jshint browser:true */
 /* jshint node:true */
@@ -7,10 +8,12 @@
 var myNewsCards = new NewsCardList([]);
 var myNewsView = new NewsView(myNewsCards);
 
+
 // Define the sources
 const leftArray = ["al-jazeera-english", "msnbc", "daily-mail", "newsweek", "the-new-york-times", "bbc-news","the-washington-post"];
 const centerArray = ["abc-news", "cnn", "cbs-news", "associated-press","reuters", "indepedent", "the-wall-street-journal"];
 const rightArray = ["the-american-conservative", "fox-news","national-review", "breitbart-news"];
+
 
 //
 //  Task Flow Functions
@@ -78,6 +81,11 @@ async function populateCardList(searchField) {
             let link = currentArticle.url;
             //let text = getSummary(currentArticle.content);
             //let tone = getTone(title);
+            let text = await Promise.all([getSummary(currentArticle.content)]);
+            console.log(text[0]);
+
+            let tone = await Promise.all([getTone(currentArticle.content)]);
+            console.log(tone[0]);
 
             let aNewsCard = new NewsCard(source, title, "", "", link, currentLeaning);
 
@@ -110,14 +118,18 @@ async function getNews(query, source) {
 
     var url = 'https://newsapi.org/v2/everything?' +
         'q=' + query + '&' +
-        'sources=' + source + '&' +
+        'sources=' + (source) + '&' +
         'pageSize=1' + '&' +
         'apiKey=bbd60ca606f641e094d9440de45c1940';
 
-        return fetch(url)
-        .then(response => response.json())
-        .catch(error => console.log(error));
+    return getDataFromUrl(url);
 
+}
+
+async function getDataFromUrl(url){
+    return fetch(url)
+    .then(response => response.json())
+    .catch(error => console.log(error));
 }
 
 async function getTone(headline) {
@@ -126,15 +138,29 @@ async function getTone(headline) {
     // for the title of each news article on the list of the NewsCardList.
     // Then it assigns a set of RGB values for each of the items on the list.
     //
-
-    return "";
+    
+   let url = "https://api.meaningcloud.com/sentiment-2.1?" +
+          "key=" + "77873dc3cbca39af92159ed769e6b9d2" +
+          "&lang=" + "en" +
+          "&txt=" + headline +
+          "&txtf=" + "plain";
+      
+    return getDataFromUrl(url);
 }
 
-async function getSummary(content) {
+function getSummary(content) {
 
     // Uses the summary API to get a short summary of the news article
     // If the news article summary is not available, then it gives a short
     // summary of the page itself
 
+ 
+    let url =  "https://api.meaningcloud.com/summarization-1.0?" +
+        "key=" + "77873dc3cbca39af92159ed769e6b9d2" +
+        "&txt=" + content +
+        "&sentences=" + "10";
+
+    let response = getDataFromUrl(url);
+    return response;
 }
 
