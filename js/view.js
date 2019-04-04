@@ -9,12 +9,79 @@ class NewsView{
     }
 
     // builds a card based on the information
-    buildCard(){
+    createCard(title, source, content, link){
 
-    }
+            let card = document.createElement("div");
+            card.className = "card";
+            
+            let firstCardBody = document.createElement("div");
+            firstCardBody.className = "card-body";
+        
+            let innerCard = document.createElement("div");
+            innerCard.className = "card inner-card"; //contingent on sentiment analysis
+        
+            let secondCardBody = document.createElement("div");
+            secondCardBody.className = "card-body";
+        
+            let cardTitle = document.createElement("h5");
+            cardTitle.className = ""; //contingent on sentiment analysis
+            cardTitle.innerHTML = title;
+        
+            let cardSource = document.createElement("h6");
+            cardSource.className = "card-subtitle mb-2 text-muted";
+            cardSource.innerHTML = source;
+        
+            let cardContent = document.createElement("p");
+            cardContent.className = "card-text";
+            cardContent.innerHTML = content; //contingent on summary api
+        
+            let cardLink = document.createElement("a");
+            cardLink.className = "card-link";
+            cardLink.href = "#";
+            cardLink.innerHTML = link;
+        
+            
+            // location = document.getElementById(location);
+            // location.appendChild(card);
+        
+            card.appendChild(firstCardBody);
+            firstCardBody.appendChild(innerCard);
+            innerCard.appendChild(secondCardBody);
+            secondCardBody.appendChild(cardTitle);
+            secondCardBody.appendChild(cardSource);
+            secondCardBody.appendChild(cardContent);
+            secondCardBody.appendChild(cardLink);
+        
+            return card;
+        
+        }
+
 
     // Adds cards element by element into the main view
     update(){
+        // Reads every element in this.cards
+
+        // 
+
+        for(var i=0; i<9; i++){
+            this.createCard(this.cards[i].title, this.cards[i].source, this.cards[i].text, this.cards[i].link);
+            if(this.cards[i].lean = 0){
+               let location = document.getElementById("leftLeaning");
+               location.appendChild(this.cards[i]);
+            }
+            if(this.cards[i].lean = 1){
+                let location = document.getElementById("centerLeaning");
+                location.appendChild(this.cards[i]);
+            }
+            if(this.cards[i].lean = 2){
+                let location = document.getElementById("rightLeaning");
+                location.appendChild(this.cards[i]);
+            }
+        }
+
+        //reads every element in this.cards 
+
+        //looks where cards lean and builds a card for each element and then looks at leaning and places it based on the id of leaning
 
     }
 }
