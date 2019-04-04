@@ -118,7 +118,7 @@ async function getNews(query, source) {
         'q=' + query + '&' +
         'sources=' + (source) + '&' +
         'pageSize=1' + '&' +
-        'apiKey=bbd60ca606f641e094d9440de45c1940';
+        'apiKey=1f876c5c1a9d418bb80b56c741b2e22c';
 
     return getDataFromUrl(url);
 
