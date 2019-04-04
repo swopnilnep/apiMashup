@@ -10,9 +10,9 @@ var myNewsView = new NewsView(myNewsCards);
 
 
 // Define the sources
-const leftArray = ["al-jazeera-english", "msnbc", "daily-mail", "newsweek", "the-new-york-times", "bbc-news","the-washington-post"];
-const centerArray = ["abc-news", "cnn", "cbs-news", "associated-press","reuters", "indepedent", "the-wall-street-journal"];
-const rightArray = ["the-american-conservative", "fox-news","national-review", "breitbart-news"];
+const leftArray = ["al-jazeera-english", "msnbc", "daily-mail", "newsweek", "the-new-york-times", "bbc-news", "the-washington-post"];
+const centerArray = ["abc-news", "cnn", "cbs-news", "associated-press", "reuters", "indepedent", "the-wall-street-journal"];
+const rightArray = ["the-american-conservative", "fox-news", "national-review", "breitbart-news"];
 
 
 //
@@ -20,15 +20,14 @@ const rightArray = ["the-american-conservative", "fox-news","national-review", "
 //
 
 async function clickSearchButton() {
-    
+
     let searchField = document.querySelector("#search-field");
     if (!searchField.checkValidity()) {
         // Validator Failed
         console.log("No Input");
-    }
-    else {
+    } else {
         // Validator Passed
-        console.log("search for "+searchField.value);
+        console.log("search for " + searchField.value);
         populateCardList(searchField.value);
     }
 }
@@ -37,12 +36,12 @@ async function populateCardList(searchField) {
 
     // call the news API for news articles and populate into NewsCardList
     let leanings = [];
-    
+
     // Process the Left Leaning Articles
     let left = leftArray.slice(0);
     let leftResponses = [];
-    for (let i=0; i<3 ; i++){
-        leftResponses.push(getNews(searchField,chooseSource(left)));
+    for (let i = 0; i < 3; i++) {
+        leftResponses.push(getNews(searchField, chooseSource(left)));
     }
     let leftArticles = await Promise.all(leftResponses);
 
@@ -51,17 +50,17 @@ async function populateCardList(searchField) {
     // Process the center leaning Articles
     let center = centerArray.slice(0);
     let centerResponses = [];
-    for (let i=0; i<3 ; i++){
-        centerResponses.push(getNews(searchField,chooseSource(center)));
-    } 
+    for (let i = 0; i < 3; i++) {
+        centerResponses.push(getNews(searchField, chooseSource(center)));
+    }
     let centerArticles = await Promise.all(centerResponses);
 
     // Process the right leaning articles
     let right = rightArray.slice(0);
     let rightResponses = [];
-    for (let i=0; i<3 ; i++){
-        rightResponses.push(getNews(searchField,chooseSource(right)));
-    } 
+    for (let i = 0; i < 3; i++) {
+        rightResponses.push(getNews(searchField, chooseSource(right)));
+    }
     let rightArticles = await Promise.all(rightResponses);
 
     // Push al the articles to the list of leanings
@@ -71,20 +70,22 @@ async function populateCardList(searchField) {
 
 
     // Add all the articles to the cardlist
-    for (let currentLeaning = 0; currentLeaning < 3; ++currentLeaning){
-        for (let indexOfArticle = 0 ; indexOfArticle < leanings[currentLeaning].length; ++indexOfArticle){
+    for (let currentLeaning = 0; currentLeaning < 3; ++currentLeaning) {
+        for (let indexOfArticle = 0; indexOfArticle < leanings[currentLeaning].length; ++indexOfArticle) {
             let currentArticle = leanings[currentLeaning][indexOfArticle].articles[0];
-            
+
             // Get card elements from json
             let source = currentArticle.source.name;
             let title = currentArticle.title;
+            let link = currentArticle.url;
+            let text = getSummary(currentArticle.content);
+            let tone = getTone(title);
             let text = await Promise.all([getSummary(currentArticle.content)]);
             console.log(text[0]);
-
             let tone = await Promise.all([getTone(currentArticle.content)]);
             console.log(tone[0]);
 
-            let aNewsCard = new NewsCard(source, title, text, tone, currentLeaning);
+            let aNewsCard = new NewsCard(source, title, text, tone, link, currentLeaning);
 
             myNewsCards.push(aNewsCard);
         }
@@ -123,10 +124,10 @@ async function getNews(query, source) {
 
 }
 
-async function getDataFromUrl(url){
+async function getDataFromUrl(url) {
     return fetch(url)
-    .then(response => response.json())
-    .catch(error => console.log(error));
+        .then(response => response.json())
+        .catch(error => console.log(error));
 }
 
 async function getTone(headline) {
@@ -135,13 +136,13 @@ async function getTone(headline) {
     // for the title of each news article on the list of the NewsCardList.
     // Then it assigns a set of RGB values for each of the items on the list.
     //
-    
-   let url = "https://api.meaningcloud.com/sentiment-2.1?" +
-          "key=" + "77873dc3cbca39af92159ed769e6b9d2" +
-          "&lang=" + "en" +
-          "&txt=" + headline +
-          "&txtf=" + "plain";
-      
+
+    let url = "https://api.meaningcloud.com/sentiment-2.1?" +
+        "key=" + "77873dc3cbca39af92159ed769e6b9d2" +
+        "&lang=" + "en" +
+        "&txt=" + headline +
+        "&txtf=" + "plain";
+
     return getDataFromUrl(url);
 }
 
@@ -151,63 +152,12 @@ function getSummary(content) {
     // If the news article summary is not available, then it gives a short
     // summary of the page itself
 
- 
-    let url =  "https://api.meaningcloud.com/summarization-1.0?" +
+
+    let url = "https://api.meaningcloud.com/summarization-1.0?" +
         "key=" + "77873dc3cbca39af92159ed769e6b9d2" +
         "&txt=" + content +
         "&sentences=" + "10";
 
     let response = getDataFromUrl(url);
     return response;
-}
-
-function createCard(title, source, content, link, location){
-
-    let card = document.createElement("div");
-    card.className = "card";
-    
-    let firstCardBody = document.createElement("div");
-    firstCardBody.className = "card-body";
-
-    let innerCard = document.createElement("div");
-    innerCard.className = "card inner-card"; //contingent on sentiment analysis
-
-    let secondCardBody = document.createElement("div");
-    secondCardBody.className = "card-body";
-
-    let cardTitle = document.createElement("h5");
-    cardTitle.className = ""; //contingent on sentiment analysis
-    cardTitle.innerHTML = title;
-
-    let cardSource = document.createElement("h6");
-    cardSource.className = "card-subtitle mb-2 text-muted";
-    cardSource.innerHTML = source;
-
-    let cardContent = document.createElement("p");
-    cardContent.className = "card-text";
-    cardContent.innerHTML = content; //contingent on summary api
-
-    let cardLink = document.createElement("a");
-    cardLink.className = "card-link";
-    cardLink.href = "#";
-    cardLink.innerHTML = link;
-
-    
-    location = document.getElementById(location);
-    location.appendChild(card);
-
-    card.appendChild(firstCardBody);
-    firstCardBody.appendChild(innerCard);
-    innerCard.appendChild(secondCardBody);
-    secondCardBody.appendChild(cardTitle);
-    secondCardBody.appendChild(cardSource);
-    secondCardBody.appendChild(cardContent);
-    secondCardBody.appendChild(cardLink);
-
-    //return card;
-    
-    
-    
-
-
 }
