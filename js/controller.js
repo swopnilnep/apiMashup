@@ -80,9 +80,9 @@ async function populateCardList(searchField) {
             let link = currentArticle.url;
             let text = getSummary(currentArticle.content);
             let tone = getTone(title);
-            let text = await Promise.all([getSummary(currentArticle.content)]);
+            text = await Promise.all([getSummary(currentArticle.content)]);
             console.log(text[0]);
-            let tone = await Promise.all([getTone(currentArticle.content)]);
+            tone = await Promise.all([getTone(currentArticle.content)]);
             console.log(tone[0]);
 
             let aNewsCard = new NewsCard(source, title, text, tone, link, currentLeaning);
