@@ -30,141 +30,35 @@
 
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" onclick="clickSearchButton();" placeholder="Search">
-                    <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                    <input class="form-control mr-sm-2" id=searchField type="search" placeholder="Search">
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit" onclick="clickSearchButton()">Search</button>
                 </form>
             </div>
         </nav>
     </div>
     <br>
 
-    <!-- Cards Container-->
-    <!-- <div class="container-fluid" id="cards-container ">
 
+    <div class="container-fluid" id="cards-container ">
         <div class="row">
-
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-header">
-                        Left Leaning
-                    </div>
-                    <div class="card-body">
-
-                        <div class="card inner-card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Discovery in Cancer Studies</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">BBC News</h6>
-                                <p class="card-text">This is the content of the webpage. this is the entire article summarized in 10 sentences.</p>
-                                <a href="#" class="card-link">View Article</a>
-                            </div>
-                        </div>
-
-                        <div class="card inner-card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Discovery in Cancer Studies</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">BBC News</h6>
-                                <p class="card-text">This is the content of the webpage. this is the entire article summarized in 10 sentences.</p>
-                                <a href="#" class="card-link">View Article</a>
-                            </div>
-                        </div>
-
-                        <div class="card inner-card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Discovery in Cancer Studies</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">BBC News</h6>
-                                <p class="card-text">This is the content of the webpage. this is the entire article summarized in 10 sentences.</p>
-                                <a href="#" class="card-link">View Article</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+            <div class="col-4" id = "leftLeaning">
+                <h3>Left Leaning</h3>
+                
             </div>
-
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-header">
-                        Center Leaning
-                    </div>
-                    <div class="card-body">
-
-                        <div class="card inner-card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Discovery in Cancer Studies</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">BBC News</h6>
-                                <p class="card-text">This is the content of the webpage. this is the entire article summarized in 10 sentences.</p>
-                                <a href="#" class="card-link">View Article</a>
-                            </div>
-                        </div>
-
-                        <div class="card inner-card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Discovery in Cancer Studies</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">BBC News</h6>
-                                <p class="card-text">This is the content of the webpage. this is the entire article summarized in 10 sentences.</p>
-                                <a href="#" class="card-link">View Article</a>
-                            </div>
-                        </div>
-
-                        <div class="card inner-card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Discovery in Cancer Studies</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">BBC News</h6>
-                                <p class="card-text">This is the content of the webpage. this is the entire article summarized in 10 sentences.</p>
-                                <a href="#" class="card-link">View Article</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+            <div class="col-4" id = "centerLeaning">
+                <h3>Center Leaning</h3>
+                
             </div>
-
-            <div class="col-4">
-                <div class="card">
-                    <div class="card-header">
-                        Right Leaning
-                    </div>
-                    <div class="card-body">
-
-                        <div class="card inner-card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Discovery in Cancer Studies</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">BBC News</h6>
-                                <p class="card-text">This is the content of the webpage. this is the entire article summarized in 10 sentences.</p>
-                                <a href="#" class="card-link">View Article</a>
-                            </div>
-                        </div>
-
-                        <div class="card inner-card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Discovery in Cancer Studies</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">BBC News</h6>
-                                <p class="card-text">This is the content of the webpage. this is the entire article summarized in 10 sentences.</p>
-                                <a href="#" class="card-link">View Article</a>
-                            </div>
-                        </div>
-
-                        <div class="card inner-card">
-                            <div class="card-body">
-                                <h5 class="card-title">New Discovery in Cancer Studies</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">BBC News</h6>
-                                <p class="card-text">This is the content of the webpage. this is the entire article summarized in 10 sentences.</p>
-                                <a href="#" class="card-link">View Article</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+            <div class="col-4" id = "rightLeaning">
+                <h3>Right Leaning</h3>
+                
             </div>
-
         </div>
-
-    </div> -->
-
+    </div>
 
     <!-- Add bootstrap javascript elements -->
     <script src="../js/jquery-3.3.1.slim.min.js "></script>
-    <script src="../js/bootstrap.min.js "></script>
+    <script src="../js/bootstrap.bundle.min.js "></script>
     <script src="../js/popper.min.js "></script>
 </body>
 
