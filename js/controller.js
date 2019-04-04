@@ -54,14 +54,14 @@ async function populateCardList(searchField) {
     let centerArticles = await Promise.all(centerResponses);
 
     // Process the right leaning articles
-    let right = centerArray.slice(0);
+    let right = rightArray.slice(0);
     let rightResponses = [];
     for (let i=0; i<3 ; i++){
         rightResponses.push(getNews(searchField,chooseSource(right)));
     } 
     let rightArticles = await Promise.all(rightResponses);
 
-    // Push al the articles to the list of leanings
+    // Push all the articles to the list of leanings
     leanings.push(leftArticles);
     leanings.push(centerArticles);
     leanings.push(rightArticles);
@@ -75,10 +75,11 @@ async function populateCardList(searchField) {
             // Get card elements from json
             let source = currentArticle.source.name;
             let title = currentArticle.title;
-            let text = getSummary(currentArticle.content);
-            let tone = getTone(title);
+            let link = currentArticle.url;
+            //let text = getSummary(currentArticle.content);
+            //let tone = getTone(title);
 
-            let aNewsCard = new NewsCard(source, title, text, tone, currentLeaning);
+            let aNewsCard = new NewsCard(source, title, "", "", link, currentLeaning);
 
             myNewsCards.push(aNewsCard);
         }
@@ -137,53 +138,3 @@ async function getSummary(content) {
 
 }
 
-function createCard(title, source, content, link, location){
-
-    let card = document.createElement("div");
-    card.className = "card";
-    
-    let firstCardBody = document.createElement("div");
-    firstCardBody.className = "card-body";
-
-    let innerCard = document.createElement("div");
-    innerCard.className = "card inner-card"; //contingent on sentiment analysis
-
-    let secondCardBody = document.createElement("div");
-    secondCardBody.className = "card-body";
-
-    let cardTitle = document.createElement("h5");
-    cardTitle.className = ""; //contingent on sentiment analysis
-    cardTitle.innerHTML = title;
-
-    let cardSource = document.createElement("h6");
-    cardSource.className = "card-subtitle mb-2 text-muted";
-    cardSource.innerHTML = source;
-
-    let cardContent = document.createElement("p");
-    cardContent.className = "card-text";
-    cardContent.innerHTML = content; //contingent on summary api
-
-    let cardLink = document.createElement("a");
-    cardLink.className = "card-link";
-    cardLink.href = "#";
-    cardLink.innerHTML = link;
-
-    
-    location = document.getElementById(location);
-    location.appendChild(card);
-
-    card.appendChild(firstCardBody);
-    firstCardBody.appendChild(innerCard);
-    innerCard.appendChild(secondCardBody);
-    secondCardBody.appendChild(cardTitle);
-    secondCardBody.appendChild(cardSource);
-    secondCardBody.appendChild(cardContent);
-    secondCardBody.appendChild(cardLink);
-
-    //return card;
-    
-    
-    
-
-
-}
