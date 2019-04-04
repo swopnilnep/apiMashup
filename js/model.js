@@ -23,7 +23,7 @@ class NewsCardList{
         this.list.push(card);
     }
 
-    get list(){
+    cards(){
         return this.list;
     }
 
