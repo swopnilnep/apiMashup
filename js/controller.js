@@ -75,10 +75,11 @@ async function populateCardList(searchField) {
             // Get card elements from json
             let source = currentArticle.source.name;
             let title = currentArticle.title;
+            let link = currentArticle.url;
             let text = getSummary(currentArticle.content);
             let tone = getTone(title);
 
-            let aNewsCard = new NewsCard(source, title, text, tone, currentLeaning);
+            let aNewsCard = new NewsCard(source, title, text, tone, link, currentLeaning);
 
             myNewsCards.push(aNewsCard);
         }
