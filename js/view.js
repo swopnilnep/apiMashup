@@ -21,15 +21,15 @@ class NewsView{
         
             let secondCardBody = document.createElement("div");
             //secondCardBody.className = "card-body";
-            if(tone.score_tag == "P+" || "P"){
-                secondCardBody.className = "card-body text-success"
+            if(tone == "P+" || tone == "P"){
+                secondCardBody.className = "card-body text-success";
             }
 
-            if(tone.score_tag == "N" || "N+"){
-                secondCardBody.className = "card-body text-danger"
+            if(tone == "N" || tone == "N+"){
+                secondCardBody.className = "card-body text-danger";
             }
-            if(tone.score_tag == "NEU" || "NONE"){
-                secondCardBody.className = "card-body"
+            if(tone == "NEU" || tone == "NONE"){
+                secondCardBody.className = "card-body";
             }
         
             let cardTitle = document.createElement("h5");
@@ -49,9 +49,6 @@ class NewsView{
             cardLink.innerHTML = "Article Link";
             cardLink.href = link;
 
-            
-                
-            
             if(lean == 0){
                 let location = document.getElementById("leftLeaning");
                 location.appendChild(firstCardBody);
@@ -80,43 +77,44 @@ class NewsView{
             //return card;
         
         }
-
-
-    // Adds cards element by element into the main view
-    update(){
-        // Reads every element in this.cards
-
-        // 
-
-        for(var i=0; i<9; i++){
-            this.createCard(this.cards[i].title, this.cards[i].source, this.cards[i].text, this.cards[i].link);
-            if(this.cards[i].tone.score_tag = "P+" || "P"){
-                //color change
-            }
-
-            if(this.cards[i].tone.score_tag = "NEU" || "NONE"){
-                //color change
-            }
-            if(this.cards[i].tone.score_tag = "N" || "N+"){
-                //color change
-            }
-            if(this.cards[i].lean = 0){
-               let location = document.getElementById("leftLeaning");
-               location.appendChild(this.cards[i]);
-            }
-            if(this.cards[i].lean = 1){
-                let location = document.getElementById("centerLeaning");
-                location.appendChild(this.cards[i]);
-            }
-            if(this.cards[i].lean = 2){
-                let location = document.getElementById("rightLeaning");
-                location.appendChild(this.cards[i]);
-            }
-        }
-
-        //reads every element in this.cards 
-
-        //looks where cards lean and builds a card for each element and then looks at leaning and places it based on the id of leaning
-
     }
-}
+
+
+//     // Adds cards element by element into the main view
+//     update(){
+//         // Reads every element in this.cards
+
+//         // 
+
+//         for(var i=0; i<9; i++){
+//             this.createCard(this.cards[i].title, this.cards[i].source, this.cards[i].text, this.cards[i].link);
+//             if(this.cards[i].tone.score_tag = "P+" || "P"){
+//                 //color change
+//             }
+
+//             if(this.cards[i].tone.score_tag = "NEU" || "NONE"){
+//                 //color change
+//             }
+//             if(this.cards[i].tone.score_tag = "N" || "N+"){
+//                 //color change
+//             }
+//             if(this.cards[i].lean = 0){
+//                let location = document.getElementById("leftLeaning");
+//                location.appendChild(this.cards[i]);
+//             }
+//             if(this.cards[i].lean = 1){
+//                 let location = document.getElementById("centerLeaning");
+//                 location.appendChild(this.cards[i]);
+//             }
+//             if(this.cards[i].lean = 2){
+//                 let location = document.getElementById("rightLeaning");
+//                 location.appendChild(this.cards[i]);
+//             }
+//         }
+
+//         //reads every element in this.cards 
+
+//         //looks where cards lean and builds a card for each element and then looks at leaning and places it based on the id of leaning
+
+//     }
+// }
