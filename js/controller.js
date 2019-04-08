@@ -41,9 +41,7 @@ async function populateCardList(searchField) {
     // Process the Left Leaning Articles
     let left = leftArray.slice(0);
     let leftResponses = [];
-    for (let i=0; i<3 ; i++){
         leftResponses.push(getNews(searchField,chooseSource(left)));
-    }
     let leftArticles = await Promise.all(leftResponses);
 
     console.log("left articles:", leftArticles);
@@ -51,17 +49,13 @@ async function populateCardList(searchField) {
     // Process the center leaning Articles
     let center = centerArray.slice(0);
     let centerResponses = [];
-    for (let i=0; i<3 ; i++){
         centerResponses.push(getNews(searchField,chooseSource(center)));
-    } 
     let centerArticles = await Promise.all(centerResponses);
 
     // Process the right leaning articles
     let right = rightArray.slice(0);
     let rightResponses = [];
-    for (let i=0; i<3 ; i++){
         rightResponses.push(getNews(searchField,chooseSource(right)));
-    } 
     let rightArticles = await Promise.all(rightResponses);
 
     // Push all the articles to the list of leanings
