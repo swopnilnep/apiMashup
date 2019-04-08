@@ -2,79 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
-    <title>A diversified news aggregator</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Prospectus</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom styles for this template -->
+  <link href="../css/landing-page.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <!-- Load JavaScript implemented functions -->
-    <script src="../js/model.js" type=text/javascript charset="UTF-8"></script>
-    <script src="../js/view.js" type=text/javascript charset="UTF-8"></script>
-    <script src="../js/controller.js" type=text/javascript charset="UTF-8"></script>
 
-    <!-- Form Container -->
-    <div class="container-fluid" id="form-container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Prospectus</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
+  <!-- Masthead -->
+  <header class="masthead text text-center">
+    
+    <div class="container">
 
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <lead>Diversified stories from all across the political spectrum.  </lead>
-                    </li>
+      <div class="row">
 
-                </ul>
-               
-                <div class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" id="search-field" placeholder="Search" required>
-                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" onclick="clickSearchButton();">Search</button>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <br>
-
-    <!-- Cards Container -->
-   
-
-    <div class="container-fluid" id="cards-container ">
-        <div class="row">
-            <div class="col-4" id = "leftLeaning">
-                <div class="card">
-                    <div class="card-header">
-                            Left Leaning
-                    </div>
-                        
-                </div>
-            </div>
-            <div class="col-4" id = "centerLeaning">
-                    <div class="card">
-                        <div class="card-header">
-                                Center Leaning
-                        </div>
-                            
-                    </div>
-                </div>
-                <div class="col-4" id = "rightLeaning">
-                        <div class="card">
-                            <div class="card-header">
-                                    Right Leaning
-                            </div>
-                                
-                        </div>
-                    </div>
+        <div class="col-xl-9 mx-auto">
+        <h1 class="lead mb-4">Welcome to <strong>Prospectus</strong></h1>
+          <h2 class="lead mb-4"> Every news source is biased, leading to different sentiments towards the same incidents. We provide diversified stories from all across the political spectrum. </h2>
         </div>
-    </div>
 
-    <!-- Add bootstrap javascript elements -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js "></script>
-    <script src="../js/popper.min.js "></script>
+        
+        <!-- Search bar -->
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="search" class="form-control form-control-lg">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-block btn-lg btn-outline-dark">Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../js/jquery-3.3.1.slim.min.js"></script>
+  <!-- <script src="../js/bootstrap.min.js"></script> -->
+
 </body>
 
 </html>
